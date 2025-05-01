@@ -1,0 +1,39 @@
+try {
+  console.log(notDeclaredVar);
+} catch (e) {
+  console.log(e.toString());
+}
+
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Divide by zero");
+  }
+  return a / b;
+}
+
+try {
+  divide(10, 0);
+} catch (e) {
+  console.log(e.toString());
+}
+
+function accessArray(arr, index) {
+  if (index < 0 || index >= arr.length) {
+    throw new Error("Out of bound error");
+  }
+  return arr[index];
+}
+
+try {
+  accessArray([1, 2, 3], 5);
+} catch (e) {
+  console.log(e.toString());
+}
+
+try {
+  throw new Error("Something went wrong");
+} catch (e) {
+  console.log(e.toString());
+} finally {
+  console.log("Finally block executed");
+}
